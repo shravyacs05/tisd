@@ -1,3 +1,4 @@
+// src/pages/Home.jsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ProjectCard from '../components/ProjectCard';
@@ -46,8 +47,11 @@ const sampleProjects = [
 const departments = [
   "Mechanical Engineering",
   "Computer Science",
-  "AI & DS Engineering",
-  "ECS Enginering",
+  "Electrical Engineering",
+  "Civil Engineering",
+  "Materials Science",
+  "Biotechnology",
+  "Electronics & Communication"
 ];
 
 const Home = () => {

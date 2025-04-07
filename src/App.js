@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/navbar';
+import Footer from "./components/Footer";
 import Home from './pages/home';
 import ProjectsSDG from './pages/projects';
 import Mentors from './pages/mentors';
@@ -10,12 +11,16 @@ import Gallery from './pages/gallery';
 import Contact from './pages/contact';
 import './styles/global.css';
 
+
 function App() {
   return (
     <Router>
-      <div className="app">
+      {/* Make this a flex container */}
+      <div className="flex flex-col min-h-screen">
         <Navbar />
-        <div className="content">
+        
+        {/* Main content should take remaining space */}
+        <div className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/projects/sdg-:id" element={<ProjectsSDG />} />
@@ -26,6 +31,10 @@ function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </div>
+
+        {/* Footer at the bottom */}
+        <Footer />
+      
       </div>
     </Router>
   );

@@ -1,11 +1,11 @@
-// Navbar.js
-import React, { useState } from 'react';
-import logo from '../assets/img.jpg';
+import React, { useState } from "react";
+import logo from "../assets/img.jpg";
+import "../styles/navbar.css"; // Ensure to create/update this CSS file
 
 const Navbar = () => {
   const [showSDGDropdown, setShowSDGDropdown] = useState(false);
   const [showMediaDropdown, setShowMediaDropdown] = useState(false);
-  
+
   const sdgs = [
     { id: 1, name: "No Poverty" },
     { id: 2, name: "Zero Hunger" },
@@ -32,26 +32,32 @@ const Navbar = () => {
         <img src={logo} alt="College Logo" className="college-logo" />
         <div className="brand">
           <span className="brand-text">TISD</span>
-          <span className="brand-tagline">Technology Innovation for Sustainable Development</span>
+          <span className="brand-tagline">
+            Technology Innovation for Sustainable Development
+          </span>
         </div>
       </div>
-      
+
       <div className="navbar-right">
         <ul className="nav-links">
-          <li><a href="/">Home</a></li>
-          
+          <li>
+            <a href="/">Home</a>
+          </li>
+
           <li className="dropdown">
-            <a href="#" 
-               onClick={(e) => {
-                 e.preventDefault();
-                 setShowSDGDropdown(!showSDGDropdown);
-                 if (showMediaDropdown) setShowMediaDropdown(false);
-               }}>
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                setShowSDGDropdown(!showSDGDropdown);
+                if (showMediaDropdown) setShowMediaDropdown(false);
+              }}
+            >
               Projects <i className="arrow-down"></i>
             </a>
             {showSDGDropdown && (
               <div className="dropdown-content sdg-dropdown">
-                {sdgs.map(sdg => (
+                {sdgs.map((sdg) => (
                   <a key={sdg.id} href={`/projects/sdg-${sdg.id}`}>
                     <span className="sdg-number">{sdg.id}</span> {sdg.name}
                   </a>
@@ -59,17 +65,23 @@ const Navbar = () => {
               </div>
             )}
           </li>
-          
-          <li><a href="/mentors">Mentors</a></li>
-          <li><a href="/collaborators">Collaborators</a></li>
-          
+
+          <li>
+            <a href="/mentors">Mentors</a>
+          </li>
+          <li>
+            <a href="/collaborators">Collaborators</a>
+          </li>
+
           <li className="dropdown">
-            <a href="#" 
-               onClick={(e) => {
-                 e.preventDefault();
-                 setShowMediaDropdown(!showMediaDropdown);
-                 if (showSDGDropdown) setShowSDGDropdown(false);
-               }}>
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                setShowMediaDropdown(!showMediaDropdown);
+                if (showSDGDropdown) setShowSDGDropdown(false);
+              }}
+            >
               Media <i className="arrow-down"></i>
             </a>
             {showMediaDropdown && (
@@ -79,8 +91,10 @@ const Navbar = () => {
               </div>
             )}
           </li>
-          
-          <li><a href="/contact">Contact</a></li>
+
+          <li>
+            <a href="/contact">Contact</a>
+          </li>
         </ul>
       </div>
     </nav>
